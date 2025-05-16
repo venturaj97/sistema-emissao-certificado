@@ -1,27 +1,9 @@
-from typing import Union
-
 from fastapi import FastAPI
-from pydantic import BaseModel
+from app.rotas import rota_aluno
 
 app = FastAPI()
 
-
-class Aluno(BaseModel):
-    nome: str
-    cpf: str
-    email: str
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.post("/aluno/")
-def create_item(aluno: Aluno):
-    return aluno
-
-
+app.include_router(rota_aluno.router)
 # @app.get("/items/{item_id}")
 # def read_item(item_id: int, q: Union[str, None] = None):
 #     return {"item_id": item_id, "q": q}
