@@ -4,9 +4,9 @@ from uuid import UUID
 
 
 class Aluno(BaseModel):
+    id: int
     nome: str
     cpf: UUID
-    matricula: UUID
     email: EmailStr
     media: float
     frequencia: float

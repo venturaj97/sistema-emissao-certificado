@@ -6,16 +6,16 @@ router = APIRouter()
 
 ALUNOS = [
     {
+        "aluno_id": 1,
         "nome": "Joao",
-        "matricula" ""
         "cpf": "teste",
         "email": "email",
         "media": 9.0,
         "frequencia": 75.0
     },
     {
+        "aluno_id": 2,
         "nome": "Joao2",
-        "matricula": "123456",
         "cpf": "teste2",
         "email": "email2",
         "media": 8.0,
@@ -35,3 +35,7 @@ def create_item(aluno: Aluno):
 @router.get("/aluno", tags=["Alunos"])
 def listar_alunos() -> list:
     return ALUNOS
+
+@router.get("/aluno/{aluno_id}", tags=["Alunos"])
+def buscar_aluno(aluno_id: int):
+    return {"aluno_id": aluno_id}
